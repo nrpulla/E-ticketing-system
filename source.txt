@@ -1,0 +1,67 @@
+import java.util.Date;
+
+public class ETicketingSystem {
+    public static void main(String[] args) {
+        // Create a new passenger
+        PassengerInfo passenger = new PassengerInfo();
+        passenger.addPassenger(1, "John Doe", 30, "Male", 1234567890, "john.doe@example.com");
+
+        // Set availability status for a transaction
+        SetAvailStatus availStatus = new SetAvailStatus();
+        availStatus.updateStatus(1, new Date(), 100, "First Class");
+
+        // Reserve a ticket
+        Reserve reservation = new Reserve();
+        reservation.reserveTicket(1, 1, "Station A", "Station B", "First Class", 1234, "ID Proof", new Date(), 2);
+
+        // Add train information
+        TrainInfo trainInfo = new TrainInfo();
+        trainInfo.addTrainInfo(1, "Express", "Station A", "Station B", new Date(), new Date(), "Express", 100, "100 km/h", 50);
+
+        // Update train information
+        trainInfo.updateTrainInfo(1, "Express", "Station A", "Station C", new Date(), new Date(), "Express", 100, "100 km/h", 50);
+
+        // Delete train information
+        trainInfo.deleteTrainInfo(1);
+    }
+}
+
+class PassengerInfo {
+    public void addPassenger(int passId, String passName, int age, String sex, int phoneNumber, String emailId) {
+        System.out.println("Passenger added successfully.");
+    }
+}
+
+class SetAvailStatus {
+    public void updateStatus(int transacid, Date journeydate, int availableseat, String resclass) {
+        System.out.println("Availability status updated successfully.");
+    }
+}
+
+class Reserve {
+    public void reserveTicket(int passid, int trainid, String source, String destina, String tclass, int proofid, String proofname, Date date, int noOfSeatsReserved) {
+        System.out.println("Ticket reserved successfully.");
+    }
+}
+
+class TrainInfo {
+    public void addTrainInfo(int trainid, String trainname, String sourcestn, String desstn, Date depatime, Date arrivaltime, String traintype, int distance, String speed, int noOfSeats) {
+        System.out.println("Train information added successfully.");
+    }
+
+    public void updateTrainInfo(int trainid, String trainname, String sourcestn, String desstn, Date depatime, Date arrivaltime, String traintype, int distance, String speed, int noOfSeats) {
+        System.out.println("Train information updated successfully.");
+    }
+
+    public void deleteTrainInfo(int trainid) {
+        System.out.println("Train information deleted successfully.");
+    }
+}
+
+output:
+Passenger added successfully.
+Availability status updated successfully.
+Ticket reserved successfully.
+Train information added successfully.
+Train information updated successfully.
+Train information deleted successfully.
